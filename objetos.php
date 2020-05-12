@@ -7,7 +7,7 @@ $carlos->Codigo = 10;
 $carlos->Nome = "Carlinho";
 $carlos->Altura = 1.55;
 $carlos->Idade = 29;
-$carlos->Nascimento = '10/04/25';
+$carlos->Nascimento = "10/04/25";
 $carlos->Escolaridade = "Burro";
 
 echo "Esse é o {$carlos->Nome} :</br>";
@@ -26,13 +26,13 @@ $conta_carlos->Codigo = "157954";
 $conta_carlos->DataDeCriacao = "10/07/1819";
 $conta_carlos->Titular = $carlos;
 $conta_carlos->Senha = 1679;
-$conta_carlos->Saldo = "1.157.254.356.29";
+$conta_carlos->Saldo = 1157254356.29;
 $conta_carlos->Cancelada = false;
 
 echo "</br>";
 echo "Essa é a conta do: {$conta_carlos->Titular->Nome} </br>";
 
-if($conta_carlos->ObterSaldo() > "1.000.000.000.00")
+if($conta_carlos->ObterSaldo() > 1000000000.00)
 {
     echo "Eta, {$conta_carlos->Titular->Nome} é rico </br>";
 } else {
@@ -41,8 +41,8 @@ if($conta_carlos->ObterSaldo() > "1.000.000.000.00")
 
 echo "O saldo é R\$ {$conta_carlos->ObterSaldo()} </br>";
 
-$conta_carlos->Depositar("1.007.249.25");
+$conta_carlos->Depositar(1007249.25);
 echo "O saldo agora é de R\$ {$conta_carlos->ObterSaldo()} </br>";
 
-$conta_carlos->Retirar("5.000.000.00");
+$conta_carlos->Retirar(5000000.00);
 echo "{$conta_carlos->Titular->Nome} comprou uma lambo, e agora tem {$conta_carlos->ObterSaldo()} de saldo";
