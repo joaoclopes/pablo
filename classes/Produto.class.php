@@ -3,12 +3,33 @@ class Produto
 {
     var $Codigo;
     var $Descricao;
-    var $Preco;
     var $Quantidade;
+    private $Preco;
+    const MARGEM = 10;
 
-    function ImprimeEtiqueta()
+    function __construct($Codigo, $Descricao, $Quantidade, $Preco)
     {
-        print 'Código:  ' . $this->Codigo . "</br>";
-        print 'Descrição:  ' . $this->Descricao . "</br> </br>";
+        $this->Codigo =     $Codigo;
+        $this->Descricao =  $Descricao;
+        $this->Quantidade = $Quantidade;
+        $this->Preco =      $Preco;
+    }
+
+    function __get($propriedade)
+    {
+        echo "Obtendo o valor de '$propriedade' : </br>";
+        if ($propriedade == 'Preco')
+        {
+            return $this->$propriedade * (1 + (self::MARGEM / 100));
+        }
+    }
+
+    function __call($metodo, $parametros)
+    {
+        echo "Você executou o método: {$metodo}: </br>";
+        foreach ($parametros as $key => $parametro)
+        {
+            echo "\tParâmetro $key: $parametro </br>";
+        }
     }
 }
